@@ -17,9 +17,12 @@ namespace Proyecto_POS.CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private const string V = "Café Borbon";
+
         /// <summary>
         //Creacion de una lista estaica que simalara la Db
-        public static List<Producto> listaProductos = new Lis<Producto>();
+        public static List<Producto> listaProductos = new List<Producto>();
         private readonly object dgvProductos;
 
         public object ListaProductos { get; private set; }
@@ -37,11 +40,18 @@ namespace Proyecto_POS.CapaPresentacion
         private void FrmProductos_Load(object sender, EventArgs e)
         {
             //Vamos a cargar los datos iniciales
-            if (!ListaProductos.Any())
-
+            if (!listaProductos.Any())
             {
-                listaProductos.Add(new Producto { Id = 1, Nombre = "Café Gurmet", Descripcion = "Importado", Precio = 10.5m, Stock = 100, Estado = true });
-                listaProductos.Add(new Producto { Id = 2, Nombre = "Café Borbon", Descripcion = "De Altura", Precio = 20.0m, Stock = 50, Estado = true });
+                listaProductos.Add(new Producto
+                {
+                    Id = 1,
+                    Nombre = "Café Gurmet",
+                    Descripcion = "Importado",
+                    Precio = 10.5m,
+                    Stock = 100,
+                    Estado = true
+                });
+                listaProductos.Add(new Producto { Id = 2, Nombre ="Café Borbon" , Descripcion = "De Altura", Precio = 20.0m, Stock = 50, Estado = true });
                 listaProductos.Add(new Producto { Id = 3, Nombre = "Cheescake", Descripcion = "Dulce Sabor", Precio = 15.75m, Stock = 75, Estado = true });
             }
             RefrescarGrid();//mando a llamar el metdo ara refrescar el datagridview
@@ -65,7 +75,7 @@ namespace Proyecto_POS.CapaPresentacion
             }
             if (!Validaciones.EsDecimal(TxtPrecio.Text)) ;
                         {
-                MessageBox.Show("El precio del producto debe ser un valor´númerico.", "Error",
+                MessageBox.Show("El precio del producto debe ser un valor númerico.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtPrecio.Focus();
                 return;

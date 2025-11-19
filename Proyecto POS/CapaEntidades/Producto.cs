@@ -10,10 +10,10 @@ namespace Proyecto_POS.CapaEntidades
     {
         //Definir atributos
         public int Id { get; set;  }
-        public int Nombre { get; set; }
-        public int Descripcion { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
         public decimal Precio { get; set; }
         public int Stock { get; set; }
-        public int Estado { get; set; }
+        public bool Estado { get; set; }
     }
 }
