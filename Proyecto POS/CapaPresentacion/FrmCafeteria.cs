@@ -45,5 +45,10 @@ namespace Proyecto_POS
             //muestro el formulario
             frm.ShowDialog();
         }
+
+        private void PanelCentral_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

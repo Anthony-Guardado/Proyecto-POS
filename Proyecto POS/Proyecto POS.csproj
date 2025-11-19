@@ -61,6 +61,7 @@
     <Compile Include="CapaPresentacion\FrmCafeteria.Designer.cs">
       <DependentUpon>FrmCafeteria.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaPresentacion\FrmCafeteria1.cs" />
     <Compile Include="CapaPresentacion\FrmProductos.cs">
       <SubType>Form</SubType>
     </Compile>

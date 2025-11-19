@@ -340,6 +340,7 @@
             this.PanelCentral.Name = "PanelCentral";
             this.PanelCentral.Size = new System.Drawing.Size(584, 537);
             this.PanelCentral.TabIndex = 2;
+            this.PanelCentral.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelCentral_Paint);
             // 
             // LogoPOSS
             // 
