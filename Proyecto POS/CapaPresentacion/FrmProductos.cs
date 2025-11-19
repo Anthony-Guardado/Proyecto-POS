@@ -72,21 +72,41 @@ namespace Proyecto_POS.CapaPresentacion
                 MessageBox.Show("El nombre del producto es obligatorio.", "Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }
-            if (!Validaciones.EsDecimal(TxtPrecio.Text)) ;
-                        {
-                MessageBox.Show("El precio del producto debe ser un valor númerico.", "Error",
+            }//valida que el precio ingresado sea un decimal
+            if (!Validaciones.EsDecimal(TxtPrecio.Text))
+            {
+                MessageBox.Show("El precio del producto debe ser un valor .", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtPrecio.Focus();
                 return;
             }
-            if (!Validaciones.EsEntero(TxtStock.Text))
+           if (!Validaciones.EsEntero(TxtStock.Text))
             {
                 MessageBox.Show("El stock del producto debe ser un valor entero.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtStock.Focus();
                 return;
             }
+            //Crear un nuevo producto
+            Producto nuevoProducto = new Producto
+            {
+                Id = listaProductos.Any() ? listaProductos.Max(p => p.Id) + 1 : 1,
+                Nombre = TxtNombre.Text.Trim(),
+                Descripcion = TxtDescripcion.Text.Trim(),
+                Precio = decimal.Parse(TxtPrecio.Text.Trim()),
+                Stock = int.Parse(TxtStock.Text.Trim()),
+                Estado = chkEstado.Checked
+            };
+            //Agregar el nuevo producto a la lista
+            listaProductos.Add(nuevoProducto);
+            //Refrescar el datagridview para mostrar el nuevo producto
+            RefrescarGrid();
+            //Limpiar los campos del formulario
+            TxtNombre.Clear();
+            TxtDescripcion.Clear();
+            TxtPrecio.Clear();
+            TxtStock.Clear();
+            chkEstado.Checked = false;
         }
     }
 }
