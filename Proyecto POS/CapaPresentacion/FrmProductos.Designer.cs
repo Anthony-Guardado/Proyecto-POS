@@ -48,6 +48,8 @@
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiarCampo = new System.Windows.Forms.Button();
             this.BtnVolver = new System.Windows.Forms.Button();
+            this.iconDropDownButton1 = new FontAwesome.Sharp.IconDropDownButton();
+            this.iconDropDownButton2 = new FontAwesome.Sharp.IconDropDownButton();
             ((System.ComponentModel.ISupportInitialize)(this.DgvProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -250,10 +252,31 @@
             this.BtnVolver.UseVisualStyleBackColor = false;
             this.BtnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
             // 
+            // iconDropDownButton1
+            // 
+            this.iconDropDownButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconDropDownButton1.IconColor = System.Drawing.Color.Black;
+            this.iconDropDownButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconDropDownButton1.Name = "iconDropDownButton1";
+            this.iconDropDownButton1.Size = new System.Drawing.Size(23, 23);
+            this.iconDropDownButton1.Text = "iconDropDownButton1";
+            this.iconDropDownButton1.Click += new System.EventHandler(this.iconDropDownButton1_Click);
+            // 
+            // iconDropDownButton2
+            // 
+            this.iconDropDownButton2.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconDropDownButton2.IconColor = System.Drawing.Color.Black;
+            this.iconDropDownButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconDropDownButton2.Name = "iconDropDownButton2";
+            this.iconDropDownButton2.Size = new System.Drawing.Size(23, 23);
+            this.iconDropDownButton2.Text = "iconDropDownButton2";
+            // 
             // FrmProductos
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.BtnVolver);
@@ -299,5 +322,7 @@
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnLimpiarCampo;
         private System.Windows.Forms.Button BtnVolver;
+        private FontAwesome.Sharp.IconDropDownButton iconDropDownButton1;
+        private FontAwesome.Sharp.IconDropDownButton iconDropDownButton2;
     }
 }

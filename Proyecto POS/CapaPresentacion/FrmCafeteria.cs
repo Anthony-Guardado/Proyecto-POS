@@ -7,7 +7,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
+using Application = System.Windows.Application;
 
 namespace Proyecto_POS
 {
@@ -30,7 +32,7 @@ namespace Proyecto_POS
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
         private void BtnVentaRapida_Click(object sender, EventArgs e)
@@ -50,5 +52,14 @@ namespace Proyecto_POS
         {
 
         }
+
+        private void BtnClientes_Click(object sender, EventArgs e)
+        {
+            //Creo una instancia del formulario FrmClientes
+            FrmClientes frm = new FrmClientes();
+            //muestro el formulario
+            frm.ShowDialog();
+        }
     }
 }
+

@@ -22,7 +22,7 @@ namespace Proyecto_POS.CapaPresentacion
         private const string V = "Café Borbon";
 
         /// <summary>
-        //Creacion de una lista estaica que simalara la Db
+        //Creacion de una lista estatica que simalara la Db
         public static List<Producto> listaProductos = new List<Producto>();
         private readonly object dgvProductos;
 
@@ -78,7 +78,7 @@ namespace Proyecto_POS.CapaPresentacion
             }//valida que el precio ingresado sea un decimal
             if (!Validaciones.EsDecimal(TxtPrecio.Text))
             {
-                MessageBox.Show("El precio del producto debe ser un valor .", "Error",
+                MessageBox.Show("El precio del producto debe ser un valor numerico.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtPrecio.Focus();
                 return;
@@ -215,6 +215,11 @@ namespace Proyecto_POS.CapaPresentacion
         private void BtnVolver_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void iconDropDownButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -48,14 +48,14 @@
             this.cierreDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelIzquierdo = new System.Windows.Forms.Panel();
+            this.PanelCentral = new System.Windows.Forms.Panel();
+            this.LogoPOSS = new System.Windows.Forms.PictureBox();
             this.BtnVentaRapida = new FontAwesome.Sharp.IconButton();
             this.BtnProductos = new FontAwesome.Sharp.IconButton();
             this.BtnClientes = new FontAwesome.Sharp.IconButton();
             this.BtnInventario = new FontAwesome.Sharp.IconButton();
             this.BtnCorteCaja = new FontAwesome.Sharp.IconButton();
             this.BtnSalir = new FontAwesome.Sharp.IconButton();
-            this.PanelCentral = new System.Windows.Forms.Panel();
-            this.LogoPOSS = new System.Windows.Forms.PictureBox();
             this.MenuSuperior.SuspendLayout();
             this.PanelIzquierdo.SuspendLayout();
             this.PanelCentral.SuspendLayout();
@@ -221,6 +221,26 @@
             this.PanelIzquierdo.Size = new System.Drawing.Size(200, 537);
             this.PanelIzquierdo.TabIndex = 1;
             // 
+            // PanelCentral
+            // 
+            this.PanelCentral.Controls.Add(this.LogoPOSS);
+            this.PanelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelCentral.Location = new System.Drawing.Point(200, 24);
+            this.PanelCentral.Name = "PanelCentral";
+            this.PanelCentral.Size = new System.Drawing.Size(584, 537);
+            this.PanelCentral.TabIndex = 2;
+            this.PanelCentral.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelCentral_Paint);
+            // 
+            // LogoPOSS
+            // 
+            this.LogoPOSS.Image = global::Proyecto_POS.Properties.Resources.Logo_de_la_Cafeteria;
+            this.LogoPOSS.Location = new System.Drawing.Point(43, 43);
+            this.LogoPOSS.Name = "LogoPOSS";
+            this.LogoPOSS.Size = new System.Drawing.Size(424, 491);
+            this.LogoPOSS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LogoPOSS.TabIndex = 0;
+            this.LogoPOSS.TabStop = false;
+            // 
             // BtnVentaRapida
             // 
             this.BtnVentaRapida.BackColor = System.Drawing.Color.Bisque;
@@ -276,6 +296,7 @@
             this.BtnClientes.TabIndex = 9;
             this.BtnClientes.Text = "Clientes";
             this.BtnClientes.UseVisualStyleBackColor = false;
+            this.BtnClientes.Click += new System.EventHandler(this.BtnClientes_Click);
             // 
             // BtnInventario
             // 
@@ -331,26 +352,6 @@
             this.BtnSalir.Text = "Salir";
             this.BtnSalir.UseVisualStyleBackColor = false;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
-            // 
-            // PanelCentral
-            // 
-            this.PanelCentral.Controls.Add(this.LogoPOSS);
-            this.PanelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelCentral.Location = new System.Drawing.Point(200, 24);
-            this.PanelCentral.Name = "PanelCentral";
-            this.PanelCentral.Size = new System.Drawing.Size(584, 537);
-            this.PanelCentral.TabIndex = 2;
-            this.PanelCentral.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelCentral_Paint);
-            // 
-            // LogoPOSS
-            // 
-            this.LogoPOSS.Image = global::Proyecto_POS.Properties.Resources.Logo_de_la_Cafeteria;
-            this.LogoPOSS.Location = new System.Drawing.Point(43, 43);
-            this.LogoPOSS.Name = "LogoPOSS";
-            this.LogoPOSS.Size = new System.Drawing.Size(424, 491);
-            this.LogoPOSS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LogoPOSS.TabIndex = 0;
-            this.LogoPOSS.TabStop = false;
             // 
             // FrmMenuPrincipal
             // 

@@ -53,6 +53,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CapaEntidades\Cliente.cs" />
     <Compile Include="CapaEntidades\Producto.cs" />
     <Compile Include="CapaEntidades\Validaciones.cs" />
     <Compile Include="CapaPresentacion\FrmCafeteria.cs">
@@ -62,6 +63,12 @@
       <DependentUpon>FrmCafeteria.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaPresentacion\FrmCafeteria1.cs" />
+    <Compile Include="CapaPresentacion\FrmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmClientes.Designer.cs">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\FrmProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +79,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CapaPresentacion\FrmCafeteria.resx">
       <DependentUpon>FrmCafeteria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmClientes.resx">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmProductos.resx">
       <DependentUpon>FrmProductos.cs</DependentUpon>
