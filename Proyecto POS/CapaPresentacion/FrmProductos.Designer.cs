@@ -200,6 +200,8 @@
             // BtnNuevo
             // 
             this.BtnNuevo.BackColor = System.Drawing.Color.Sienna;
+            this.BtnNuevo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNuevo.ForeColor = System.Drawing.Color.White;
             this.BtnNuevo.Location = new System.Drawing.Point(599, 274);
             this.BtnNuevo.Name = "BtnNuevo";
             this.BtnNuevo.Size = new System.Drawing.Size(173, 46);
@@ -211,6 +213,7 @@
             // BtnModificar
             // 
             this.BtnModificar.BackColor = System.Drawing.Color.Sienna;
+            this.BtnModificar.ForeColor = System.Drawing.Color.White;
             this.BtnModificar.Location = new System.Drawing.Point(599, 333);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(173, 46);
@@ -222,6 +225,7 @@
             // BtnEliminar
             // 
             this.BtnEliminar.BackColor = System.Drawing.Color.Sienna;
+            this.BtnEliminar.ForeColor = System.Drawing.Color.White;
             this.BtnEliminar.Location = new System.Drawing.Point(599, 388);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(173, 46);
@@ -233,6 +237,7 @@
             // BtnLimpiarCampo
             // 
             this.BtnLimpiarCampo.BackColor = System.Drawing.Color.Sienna;
+            this.BtnLimpiarCampo.ForeColor = System.Drawing.Color.White;
             this.BtnLimpiarCampo.Location = new System.Drawing.Point(599, 440);
             this.BtnLimpiarCampo.Name = "BtnLimpiarCampo";
             this.BtnLimpiarCampo.Size = new System.Drawing.Size(173, 46);
@@ -244,6 +249,7 @@
             // BtnVolver
             // 
             this.BtnVolver.BackColor = System.Drawing.Color.Sienna;
+            this.BtnVolver.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.BtnVolver.Location = new System.Drawing.Point(599, 492);
             this.BtnVolver.Name = "BtnVolver";
             this.BtnVolver.Size = new System.Drawing.Size(173, 46);

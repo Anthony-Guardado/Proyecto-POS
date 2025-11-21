@@ -50,9 +50,26 @@ namespace Proyecto_POS.CapaPresentacion
         {
 
         }
-
-        private void FrmClientes_Load(object sender, EventArgs e)
+        private void habilitarBotones()
         {
+            BtnModificar.Enabled = true;
+            BtnElminar.Enabled = true;
+            BtnLimpiarCampo.Enabled = true;
+            BtnNuevo.Enabled = false;
+
+        }
+        private void DeshabilitarBotones()
+        {
+            BtnModificar.Enabled = false;
+            BtnElminar.Enabled = false;
+            BtnLimpiarCampo.Enabled = false;
+            BtnNuevo.Enabled = true;
+
+        }
+        private void FrmClientes_Load(object sender, EventArgs e)
+            
+        {
+            DeshabilitarBotones();
             //Vamos a cargar los datos iniciales
             if (!listaClientes.Any())
             {
@@ -60,8 +77,8 @@ namespace Proyecto_POS.CapaPresentacion
                 {
                     Id = 1,
                     Nombre = "Anthony",
-                    Apellido = "Menjivar",
-                    FechaNacimiento = "2006, 12, 23",
+                     Dui = 23456789,
+                     Email = "anthonyelmago@.com",
                     Telefono = 72901221,
                     Estado = true
                 });
@@ -69,8 +86,8 @@ namespace Proyecto_POS.CapaPresentacion
                 {
                     Id = 2,
                     Nombre = "Stiven",
-                    Apellido = "Guardado",
-                    FechaNacimiento = "2005, 11, 23",
+                   Dui = 87654321,
+                     Email = "stivenmago@.com",
                     Telefono = 71881808,
                     Estado = true
                 });
@@ -78,8 +95,8 @@ namespace Proyecto_POS.CapaPresentacion
                 {
                     Id = 3,
                     Nombre = "Graciela",
-                    Apellido = "Guardado",
-                    FechaNacimiento = "2006, 4, 18",
+                   Dui = 12345678,
+                   Email = "anthonielmago@.com",    
                     Telefono = 60357572,
                     Estado = true
                 });
@@ -108,27 +125,35 @@ namespace Proyecto_POS.CapaPresentacion
                 TxtNombre.Focus();
                 return;
             }
-            if (string.IsNullOrWhiteSpace(TxtApellido.Text.Trim()))
+            if(!Validaciones.EsEntero(TxtDui.Text))
             {
-                MessageBox.Show("Ingrese el apellido del cliente es obligatorio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TxtApellido.Focus();
+                MessageBox.Show("El dui del cliente debe ser escrito con numeros y sin guion.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtDui.Focus();
                 return;
             }
             if (!Validaciones.EsEntero(TxtTelefono.Text))
             {
-                MessageBox.Show("El telefono del cliente debe ser un valor entero.", "Error",
+                MessageBox.Show("El telefono del cliente debe ser escrito con numeros.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtTelefono.Focus();
+                return;
+            }
+            if (!Validaciones.EsCorreoValido(TxtEmail.Text))
+            {
+                MessageBox.Show("El correo electronico no es valido.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtEmail.Focus();
                 return;
             }
             //Crear objeto cliente y asignar Id incrementable manualmente
             //Crear un nuevo cliente
             Cliente nuevoCliente = new Cliente
             {
-                Id = listaClientes.Any() ? listaClientes.Max(c => c.Id) + 1 : 1,
+                Id = listaClientes.Any() ? listaClientes.Max(x => x.Id) + 1 : 1,
                 Nombre = TxtNombre.Text.Trim(),
-                Apellido = TxtApellido.Text.Trim(),
-                FechaNacimiento = TxtFechaNacimiento.Text.Trim(),
+               Dui = Convert.ToInt32(TxtDui.Text.Trim()),
+                Email = TxtEmail.Text.Trim(),
                 Telefono = Convert.ToInt32(TxtTelefono.Text.Trim()),
                 Estado = ChkEstado.Checked
             };
@@ -138,13 +163,14 @@ namespace Proyecto_POS.CapaPresentacion
             RefrescarGrid();
             //Limpiar los controles
             LimpiarCampos();
+            habilitarBotones();
         }
         //Limpiar los campos del formulario
         private void LimpiarCampos()
         {
             TxtNombre.Clear();
-            TxtApellido.Clear();
-            TxtFechaNacimiento.Clear();
+            TxtDui.Clear();
+            TxtEmail.Clear();
             TxtTelefono.Clear();
             ChkEstado.Checked = true;
         }
@@ -156,6 +182,7 @@ namespace Proyecto_POS.CapaPresentacion
 
         private void BtnElminar_Click(object sender, EventArgs e)
         {
+            DeshabilitarBotones();
             //Evento para eliinar un cliente
             if (!int.TryParse(TxtId.Text, out int Id))
             {
@@ -186,18 +213,19 @@ namespace Proyecto_POS.CapaPresentacion
                if (e.RowIndex >= 0)
                {
                    DataGridViewRow row = DgvClientes.Rows[e.RowIndex];
-                   TxtId.Text = row.Cells["Id"].Value.ToString();
-                   TxtNombre.Text = row.Cells["Nombre"].Value.ToString();
-                   TxtApellido.Text = row.Cells["Apellido"].Value.ToString();
-                   TxtFechaNacimiento.Text = row.Cells["FechaNacimiento"].Value.ToString();
-                   TxtTelefono.Text = row.Cells["Telefono"].Value.ToString();
-                   ChkEstado.Checked = Convert.ToBoolean(row.Cells["Estado"].Value);
+                    TxtId.Text = row.Cells["Id"].Value.ToString();
+                    TxtNombre.Text = row.Cells["Nombre"].Value.ToString();
+                    TxtDui.Text = row.Cells["Dui"].Value.ToString();
+                    TxtEmail.Text = row.Cells["Email"].Value.ToString();
+                    TxtTelefono.Text = row.Cells["Telefono"].Value.ToString();
+                    ChkEstado.Checked = Convert.ToBoolean(row.Cells["Estado"].Value);
                 }
             }
         }
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
+            DeshabilitarBotones();
             //Evento para eliinar un cliente
             if (!int.TryParse(TxtId.Text, out int Id))
             {
@@ -219,35 +247,52 @@ namespace Proyecto_POS.CapaPresentacion
                 TxtNombre.Focus();
                 return;
             }
-            if (string.IsNullOrWhiteSpace(TxtApellido.Text.Trim()))
+            if (!Validaciones.EsEntero(TxtDui.Text))
             {
-                MessageBox.Show("Ingrese el apellido del cliente es obligatorio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TxtApellido.Focus();
+                MessageBox.Show("El dui del cliente debe ser modificado con numeros y sin guion.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtDui.Focus();
                 return;
             }
             if (!Validaciones.EsEntero(TxtTelefono.Text))
             {
-                MessageBox.Show("El telefono del cliente debe ser un valor entero.", "Error",
+                MessageBox.Show("El telefono del cliente debe ser modificado con numeros.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtTelefono.Focus();
                 return;
             }
+            if (!Validaciones.EsCorreoValido(TxtEmail.Text))
+            {
+                MessageBox.Show("El correo electronico no es valido.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtEmail.Focus();
+                return;
+            }
+
+
             //Actalizar los campos en memoria
+            client.Id = int.Parse(TxtId.Text.Trim());
             client.Nombre = TxtNombre.Text.Trim();
-            client.Apellido = TxtApellido.Text.Trim();
-            client.FechaNacimiento = TxtFechaNacimiento.Text.Trim();
+            client.Email = TxtEmail.Text.Trim();
+            client.Dui = int.Parse(TxtDui.Text.Trim());
             client.Telefono = int.Parse(TxtTelefono.Text.Trim());
             client.Estado = ChkEstado.Checked;
             MessageBox.Show("Cliente actualizado exitosamente.", "Éxito",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             RefrescarGrid();//refrescar el datagridview
-            LimpiarCampos();//limpiar los controles
+            //limpiar los controles
+            LimpiarCampos();
         }
         
 
         private void BtnVolver_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void TxtDui_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

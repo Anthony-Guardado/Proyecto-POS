@@ -11,9 +11,9 @@ namespace Proyecto_POS.CapaEntidades
         //Definir atributos
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public String FechaNacimiento { get; set; }
+        public int Dui { get; set; }
         public int Telefono { get; set; }
+        public string Email { get; set; }
         public bool Estado { get; set; }
     }
 }

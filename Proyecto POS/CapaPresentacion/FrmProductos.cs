@@ -38,9 +38,25 @@ namespace Proyecto_POS.CapaPresentacion
         {
 
         }
+        private void habilitarBotones()
+        {
+            BtnModificar.Enabled = true;
+            BtnEliminar.Enabled = true;
+            BtnLimpiarCampo.Enabled = true;
+            BtnNuevo.Enabled = false;
 
+        }
+        private void DeshabilitarBotones()
+        {
+            BtnModificar.Enabled = false;
+            BtnEliminar.Enabled = false;
+            BtnLimpiarCampo.Enabled = false;
+            BtnNuevo.Enabled = true;
+
+        }
         private void FrmProductos_Load(object sender, EventArgs e)
         {
+            DeshabilitarBotones();
             //Vamos a cargar los datos iniciales
             if (!listaProductos.Any())
             {
@@ -107,6 +123,7 @@ namespace Proyecto_POS.CapaPresentacion
             RefrescarGrid();
             //Limpiar los controles
             LimpiarCampos();
+            habilitarBotones();
         }
         //Limpiar los campos del formulario
         private void LimpiarCampos()
@@ -145,6 +162,8 @@ namespace Proyecto_POS.CapaPresentacion
                 listaProductos.Remove(prod);
                 RefrescarGrid();
                 LimpiarCampos();
+                DeshabilitarBotones();
+               
             }
         }
 
@@ -196,6 +215,8 @@ namespace Proyecto_POS.CapaPresentacion
                  MessageBoxButtons.OK, MessageBoxIcon.Information);
             RefrescarGrid();//refrescar el datagridview
             LimpiarCampos();//limpiar los controles
+            DeshabilitarBotones();
+            
         }
 
         private void DgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -209,6 +230,7 @@ namespace Proyecto_POS.CapaPresentacion
                 TxtPrecio.Text = DgvProductos.CurrentRow.Cells["Precio"].Value.ToString();
                 TxtStock.Text = DgvProductos.CurrentRow.Cells["Stock"].Value.ToString();
                 chkEstado.Checked = (bool)DgvProductos.CurrentRow.Cells["Estado"].Value;
+                habilitarBotones();
             }
         }
 
