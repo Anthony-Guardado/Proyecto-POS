@@ -1,15 +1,7 @@
-﻿using Proyecto_POS.CapaPresentacion;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System;
 using System.Windows.Forms;
-using Application = System.Windows.Application;
+using Proyecto_POS.CapaPresentacion;
+using Proyecto_POS.Pruebas;
 
 namespace Proyecto_POS
 {
@@ -37,7 +29,9 @@ namespace Proyecto_POS
 
         private void BtnVentaRapida_Click(object sender, EventArgs e)
         {
-
+            FrmRegistrarVenta frm = new FrmRegistrarVenta();
+            //muestro el formulario
+            frm.ShowDialog();
         }
 
         private void BtnProductos_Click(object sender, EventArgs e)
@@ -56,10 +50,12 @@ namespace Proyecto_POS
         private void BtnClientes_Click(object sender, EventArgs e)
         {
             //Creo una instancia del formulario FrmClientes
-            FrmClientes frm = new FrmClientes();
+            FrmCliente2 frm = new FrmCliente2();
             //muestro el formulario
             frm.ShowDialog();
         }
     }
+
+   
 }
 

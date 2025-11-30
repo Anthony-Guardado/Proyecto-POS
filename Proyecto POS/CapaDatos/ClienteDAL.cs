@@ -12,7 +12,10 @@ namespace Proyecto_POS.CapaDatos
 {
     public class ClienteDAL
     {
-        public DataTable Listar()
+       
+       
+
+            public DataTable Listar()
         {
             DataTable dt = new DataTable();//Tabla memoria
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
@@ -99,7 +102,41 @@ namespace Proyecto_POS.CapaDatos
                 }
                 return dt;
             }
+
         }
+        public static List<Cliente2> ListarActivos()
+        {
+            List<Cliente2> lista = new List<Cliente2>();
+
+            using (SqlConnection con = new SqlConnection(Conexion.Cadena))
+            {
+                string sql = "SELECT * FROM Cliente WHERE Estado = 1";
+
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    con.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Cliente2
+                            {
+                                Id = Convert.ToInt32(dr["Id"]),
+                                NombreCompleto = dr["NombreCompleto"].ToString(),
+                                Dui = Convert.ToInt32(dr["Dui"]),
+                                Telefono = Convert.ToInt32(dr["Telefono"]),
+                                Email = dr["Email"].ToString(),
+                                Estado = Convert.ToBoolean(dr["Estado"])
+                            });
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+
     }
 }
 

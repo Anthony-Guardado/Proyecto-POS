@@ -1,4 +1,5 @@
 ﻿using Proyecto_POS.CapaPresentacion;
+using Proyecto_POS.Pruebas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Proyecto_POS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCliente2());
+            Application.Run(new FrmMenuPrincipal());
         }
     }
 }
