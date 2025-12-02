@@ -47,15 +47,18 @@
             this.productoMasVedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cierreDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarClaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelIzquierdo = new System.Windows.Forms.Panel();
-            this.PanelCentral = new System.Windows.Forms.Panel();
-            this.LogoPOSS = new System.Windows.Forms.PictureBox();
+            this.btnUsuarios = new FontAwesome.Sharp.IconButton();
             this.BtnVentaRapida = new FontAwesome.Sharp.IconButton();
             this.BtnProductos = new FontAwesome.Sharp.IconButton();
             this.BtnClientes = new FontAwesome.Sharp.IconButton();
             this.BtnInventario = new FontAwesome.Sharp.IconButton();
             this.BtnCorteCaja = new FontAwesome.Sharp.IconButton();
             this.BtnSalir = new FontAwesome.Sharp.IconButton();
+            this.PanelCentral = new System.Windows.Forms.Panel();
+            this.LogoPOSS = new System.Windows.Forms.PictureBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.MenuSuperior.SuspendLayout();
             this.PanelIzquierdo.SuspendLayout();
             this.PanelCentral.SuspendLayout();
@@ -69,7 +72,8 @@
             this.gestionToolStripMenuItem,
             this.ventasToolStripMenuItem,
             this.reportesToolStripMenuItem,
-            this.salirToolStripMenuItem});
+            this.salirToolStripMenuItem,
+            this.cambiarClaveToolStripMenuItem});
             this.MenuSuperior.Location = new System.Drawing.Point(0, 0);
             this.MenuSuperior.Name = "MenuSuperior";
             this.MenuSuperior.Size = new System.Drawing.Size(784, 24);
@@ -206,9 +210,17 @@
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
+            // cambiarClaveToolStripMenuItem
+            // 
+            this.cambiarClaveToolStripMenuItem.Name = "cambiarClaveToolStripMenuItem";
+            this.cambiarClaveToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.cambiarClaveToolStripMenuItem.Text = "Cambiar Clave";
+            this.cambiarClaveToolStripMenuItem.Click += new System.EventHandler(this.cambiarClaveToolStripMenuItem_Click);
+            // 
             // PanelIzquierdo
             // 
             this.PanelIzquierdo.BackColor = System.Drawing.Color.SandyBrown;
+            this.PanelIzquierdo.Controls.Add(this.btnUsuarios);
             this.PanelIzquierdo.Controls.Add(this.BtnVentaRapida);
             this.PanelIzquierdo.Controls.Add(this.BtnProductos);
             this.PanelIzquierdo.Controls.Add(this.BtnClientes);
@@ -221,25 +233,24 @@
             this.PanelIzquierdo.Size = new System.Drawing.Size(200, 537);
             this.PanelIzquierdo.TabIndex = 1;
             // 
-            // PanelCentral
+            // btnUsuarios
             // 
-            this.PanelCentral.Controls.Add(this.LogoPOSS);
-            this.PanelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelCentral.Location = new System.Drawing.Point(200, 24);
-            this.PanelCentral.Name = "PanelCentral";
-            this.PanelCentral.Size = new System.Drawing.Size(584, 537);
-            this.PanelCentral.TabIndex = 2;
-            this.PanelCentral.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelCentral_Paint);
-            // 
-            // LogoPOSS
-            // 
-            this.LogoPOSS.Image = global::Proyecto_POS.Properties.Resources.Logo_de_la_Cafeteria;
-            this.LogoPOSS.Location = new System.Drawing.Point(43, 43);
-            this.LogoPOSS.Name = "LogoPOSS";
-            this.LogoPOSS.Size = new System.Drawing.Size(424, 491);
-            this.LogoPOSS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LogoPOSS.TabIndex = 0;
-            this.LogoPOSS.TabStop = false;
+            this.btnUsuarios.BackColor = System.Drawing.Color.Bisque;
+            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuarios.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnUsuarios.IconColor = System.Drawing.Color.Black;
+            this.btnUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUsuarios.IconSize = 25;
+            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsuarios.Location = new System.Drawing.Point(10, 382);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnUsuarios.Size = new System.Drawing.Size(180, 55);
+            this.btnUsuarios.TabIndex = 12;
+            this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.UseVisualStyleBackColor = false;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // BtnVentaRapida
             // 
@@ -344,14 +355,45 @@
             this.BtnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnSalir.IconSize = 25;
             this.BtnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSalir.Location = new System.Drawing.Point(12, 384);
+            this.BtnSalir.Location = new System.Drawing.Point(10, 453);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.BtnSalir.Size = new System.Drawing.Size(180, 55);
             this.BtnSalir.TabIndex = 6;
-            this.BtnSalir.Text = "Salir";
+            this.BtnSalir.Text = "Cerra Sesión";
             this.BtnSalir.UseVisualStyleBackColor = false;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            // 
+            // PanelCentral
+            // 
+            this.PanelCentral.Controls.Add(this.LogoPOSS);
+            this.PanelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelCentral.Location = new System.Drawing.Point(200, 24);
+            this.PanelCentral.Name = "PanelCentral";
+            this.PanelCentral.Size = new System.Drawing.Size(584, 537);
+            this.PanelCentral.TabIndex = 2;
+            this.PanelCentral.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelCentral_Paint);
+            // 
+            // LogoPOSS
+            // 
+            this.LogoPOSS.Image = global::Proyecto_POS.Properties.Resources.Logo_de_la_Cafeteria;
+            this.LogoPOSS.Location = new System.Drawing.Point(43, 43);
+            this.LogoPOSS.Name = "LogoPOSS";
+            this.LogoPOSS.Size = new System.Drawing.Size(424, 491);
+            this.LogoPOSS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LogoPOSS.TabIndex = 0;
+            this.LogoPOSS.TabStop = false;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(523, 0);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(65, 25);
+            this.lblUsuario.TabIndex = 3;
+            this.lblUsuario.Text = "label1";
+            this.lblUsuario.Click += new System.EventHandler(this.lblUsuario_Click);
             // 
             // FrmMenuPrincipal
             // 
@@ -359,6 +401,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.PanelCentral);
             this.Controls.Add(this.PanelIzquierdo);
             this.Controls.Add(this.MenuSuperior);
@@ -367,6 +410,7 @@
             this.Name = "FrmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema POS Cafeteria Dulce Aroma";
+            this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             this.MenuSuperior.ResumeLayout(false);
             this.MenuSuperior.PerformLayout();
             this.PanelIzquierdo.ResumeLayout(false);
@@ -407,6 +451,9 @@
         private FontAwesome.Sharp.IconButton BtnVentaRapida;
         private FontAwesome.Sharp.IconButton BtnProductos;
         private FontAwesome.Sharp.IconButton BtnClientes;
+        private System.Windows.Forms.Label lblUsuario;
+        private FontAwesome.Sharp.IconButton btnUsuarios;
+        private System.Windows.Forms.ToolStripMenuItem cambiarClaveToolStripMenuItem;
     }
 }
 

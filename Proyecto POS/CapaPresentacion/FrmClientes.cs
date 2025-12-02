@@ -50,6 +50,8 @@ namespace Proyecto_POS.CapaPresentacion
         {
 
         }
+
+
         private void habilitarBotones()
         {
             BtnModificar.Enabled = true;

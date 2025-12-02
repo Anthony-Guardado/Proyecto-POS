@@ -30,23 +30,23 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cboCliente = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cboTipoPago = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cboTipoPago = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cboCliente = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtBuscarProducto = new System.Windows.Forms.TextBox();
-            this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
+            this.btnBuscarProducto = new System.Windows.Forms.Button();
+            this.txtBuscarProducto = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dgvDetalles = new System.Windows.Forms.DataGridView();
-            this.btnQuitar = new System.Windows.Forms.Button();
             this.btnLimpiarDetalle = new System.Windows.Forms.Button();
+            this.btnQuitar = new System.Windows.Forms.Button();
+            this.dgvDetalles = new System.Windows.Forms.DataGridView();
             this.btnRegistrarVenta = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -80,46 +80,39 @@
             this.groupBox1.Controls.Add(this.cboCliente);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(1, 66);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(1337, 67);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS GENERALES DE LA VENTA";
             // 
-            // label2
+            // dtpFecha
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 30);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "CLIENTE:";
+            this.dtpFecha.Location = new System.Drawing.Point(1008, 27);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(299, 27);
+            this.dtpFecha.TabIndex = 9;
             // 
-            // cboCliente
+            // label4
             // 
-            this.cboCliente.FormattingEnabled = true;
-            this.cboCliente.Location = new System.Drawing.Point(94, 24);
-            this.cboCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cboCliente.Name = "cboCliente";
-            this.cboCliente.Size = new System.Drawing.Size(287, 28);
-            this.cboCliente.TabIndex = 2;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(943, 34);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 20);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "FÉCHA:";
             // 
-            // button1
+            // cboTipoPago
             // 
-            this.button1.BackColor = System.Drawing.Color.LimeGreen;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(385, 23);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 31);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "NUEVO";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.cboTipoPago.FormattingEnabled = true;
+            this.cboTipoPago.Location = new System.Drawing.Point(663, 26);
+            this.cboTipoPago.Margin = new System.Windows.Forms.Padding(2);
+            this.cboTipoPago.Name = "cboTipoPago";
+            this.cboTipoPago.Size = new System.Drawing.Size(186, 28);
+            this.cboTipoPago.TabIndex = 5;
             // 
             // label3
             // 
@@ -131,24 +124,39 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "TIPO DE PAGO:";
             // 
-            // cboTipoPago
+            // button1
             // 
-            this.cboTipoPago.FormattingEnabled = true;
-            this.cboTipoPago.Location = new System.Drawing.Point(663, 26);
-            this.cboTipoPago.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cboTipoPago.Name = "cboTipoPago";
-            this.cboTipoPago.Size = new System.Drawing.Size(186, 28);
-            this.cboTipoPago.TabIndex = 5;
+            this.button1.BackColor = System.Drawing.Color.LimeGreen;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(385, 23);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 31);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "NUEVO";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label4
+            // cboCliente
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(943, 34);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "FÉCHA:";
+            this.cboCliente.FormattingEnabled = true;
+            this.cboCliente.Location = new System.Drawing.Point(94, 24);
+            this.cboCliente.Margin = new System.Windows.Forms.Padding(2);
+            this.cboCliente.Name = "cboCliente";
+            this.cboCliente.Size = new System.Drawing.Size(287, 28);
+            this.cboCliente.TabIndex = 2;
+            this.cboCliente.SelectedIndexChanged += new System.EventHandler(this.cboCliente_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 30);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "CLIENTE:";
             // 
             // dgvProductos
             // 
@@ -161,13 +169,6 @@
             this.dgvProductos.Size = new System.Drawing.Size(482, 232);
             this.dgvProductos.TabIndex = 7;
             this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
-            // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Location = new System.Drawing.Point(1008, 27);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(299, 27);
-            this.dtpFecha.TabIndex = 9;
             // 
             // groupBox2
             // 
@@ -183,23 +184,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PRODUCTOS";
             // 
-            // label5
+            // btnAgregarProducto
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 35);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 20);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "FILTRAR:";
-            // 
-            // txtBuscarProducto
-            // 
-            this.txtBuscarProducto.Location = new System.Drawing.Point(83, 28);
-            this.txtBuscarProducto.Name = "txtBuscarProducto";
-            this.txtBuscarProducto.Size = new System.Drawing.Size(254, 27);
-            this.txtBuscarProducto.TabIndex = 2;
-            this.txtBuscarProducto.TextChanged += new System.EventHandler(this.txtBuscarProducto_TextChanged);
+            this.btnAgregarProducto.BackColor = System.Drawing.Color.SandyBrown;
+            this.btnAgregarProducto.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarProducto.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(83, 350);
+            this.btnAgregarProducto.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(297, 31);
+            this.btnAgregarProducto.TabIndex = 8;
+            this.btnAgregarProducto.Text = "AGREGAR PRODUCTO AL CARRITO";
+            this.btnAgregarProducto.UseVisualStyleBackColor = false;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
             // btnBuscarProducto
             // 
@@ -215,19 +212,23 @@
             this.btnBuscarProducto.UseVisualStyleBackColor = false;
             this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
             // 
-            // btnAgregarProducto
+            // txtBuscarProducto
             // 
-            this.btnAgregarProducto.BackColor = System.Drawing.Color.SandyBrown;
-            this.btnAgregarProducto.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarProducto.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarProducto.Location = new System.Drawing.Point(83, 350);
-            this.btnAgregarProducto.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(297, 31);
-            this.btnAgregarProducto.TabIndex = 8;
-            this.btnAgregarProducto.Text = "AGREGAR PRODUCTO AL CARRITO";
-            this.btnAgregarProducto.UseVisualStyleBackColor = false;
-            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
+            this.txtBuscarProducto.Location = new System.Drawing.Point(83, 28);
+            this.txtBuscarProducto.Name = "txtBuscarProducto";
+            this.txtBuscarProducto.Size = new System.Drawing.Size(254, 27);
+            this.txtBuscarProducto.TabIndex = 2;
+            this.txtBuscarProducto.TextChanged += new System.EventHandler(this.txtBuscarProducto_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(5, 35);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 20);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "FILTRAR:";
             // 
             // groupBox3
             // 
@@ -241,17 +242,19 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "DETALLES DE LA VENTA";
             // 
-            // dgvDetalles
+            // btnLimpiarDetalle
             // 
-            this.dgvDetalles.AllowUserToResizeRows = false;
-            this.dgvDetalles.BackgroundColor = System.Drawing.Color.White;
-            this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalles.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvDetalles.Location = new System.Drawing.Point(16, 24);
-            this.dgvDetalles.Name = "dgvDetalles";
-            this.dgvDetalles.Size = new System.Drawing.Size(593, 352);
-            this.dgvDetalles.TabIndex = 8;
-            this.dgvDetalles.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalles_CellEndEdit);
+            this.btnLimpiarDetalle.BackColor = System.Drawing.Color.MediumOrchid;
+            this.btnLimpiarDetalle.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarDetalle.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiarDetalle.Location = new System.Drawing.Point(638, 192);
+            this.btnLimpiarDetalle.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLimpiarDetalle.Name = "btnLimpiarDetalle";
+            this.btnLimpiarDetalle.Size = new System.Drawing.Size(109, 51);
+            this.btnLimpiarDetalle.TabIndex = 10;
+            this.btnLimpiarDetalle.Text = "LIMPIAR TODO";
+            this.btnLimpiarDetalle.UseVisualStyleBackColor = false;
+            this.btnLimpiarDetalle.Click += new System.EventHandler(this.btnLimpiarDetalle_Click);
             // 
             // btnQuitar
             // 
@@ -267,19 +270,17 @@
             this.btnQuitar.UseVisualStyleBackColor = false;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
-            // btnLimpiarDetalle
+            // dgvDetalles
             // 
-            this.btnLimpiarDetalle.BackColor = System.Drawing.Color.MediumOrchid;
-            this.btnLimpiarDetalle.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiarDetalle.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiarDetalle.Location = new System.Drawing.Point(638, 192);
-            this.btnLimpiarDetalle.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLimpiarDetalle.Name = "btnLimpiarDetalle";
-            this.btnLimpiarDetalle.Size = new System.Drawing.Size(109, 51);
-            this.btnLimpiarDetalle.TabIndex = 10;
-            this.btnLimpiarDetalle.Text = "LIMPIAR TODO";
-            this.btnLimpiarDetalle.UseVisualStyleBackColor = false;
-            this.btnLimpiarDetalle.Click += new System.EventHandler(this.btnLimpiarDetalle_Click);
+            this.dgvDetalles.AllowUserToResizeRows = false;
+            this.dgvDetalles.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalles.GridColor = System.Drawing.Color.Gainsboro;
+            this.dgvDetalles.Location = new System.Drawing.Point(16, 24);
+            this.dgvDetalles.Name = "dgvDetalles";
+            this.dgvDetalles.Size = new System.Drawing.Size(593, 352);
+            this.dgvDetalles.TabIndex = 8;
+            this.dgvDetalles.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalles_CellEndEdit);
             // 
             // btnRegistrarVenta
             // 
@@ -353,7 +354,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FrmRegistrarVenta";
             this.Text = "FrmRegistrarVenta";
             this.Load += new System.EventHandler(this.FrmRegistrarVenta_Load);

@@ -61,9 +61,9 @@ namespace Proyecto_POS.Pruebas
         new DetalleVenta()
         {
             Id_Producto = 1,
-            Cantidad = 1,
+            Cantidad = 1200,
             PrecioUnitario = 5.00m,
-            SubTotal = 5.00m
+            SubTotal = 6000.00m
         }
     };
 

@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 
 namespace Proyecto_POS.CapaDatos
 {
@@ -136,7 +137,8 @@ namespace Proyecto_POS.CapaDatos
             return lista;
         }
 
-
+         
     }
+    
 }
 

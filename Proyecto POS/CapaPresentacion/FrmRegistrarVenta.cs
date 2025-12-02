@@ -229,26 +229,24 @@ namespace Proyecto_POS.CapaPresentacion
             {
                 if (dgvDetalles.Rows.Count == 0)
                 {
-                    MessageBox.Show("La venta no tiene productos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("La venta no tiene productos,", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
-                // ---------------------------------------------------
-                // 1) CREAR OBJETO VENTA
-                // ---------------------------------------------------
+                //_________________
+                //CREAR OBJETO VENTA
+                //__________________
                 Venta venta = new Venta()
                 {
                     FechaVenta = dtpFecha.Value,
-                    MontoTotal = ObtenerTotalVenta(), // lo creamos abajo
+                    MontoTotal = ObtenerTotalVenta(), // lo creamos abajo 
                     Id_Cliente = Convert.ToInt32(cboCliente.SelectedValue),
                     Id_TipoPago = Convert.ToInt32(cboTipoPago.SelectedValue)
                 };
 
-                // ---------------------------------------------------
-                // 2) CREAR LISTA DE DETALLES
-                // ---------------------------------------------------
+                //__________
+                //CREAR LISTA DE LOS DETALLES
+                //_______________
                 List<DetalleVenta> detalles = new List<DetalleVenta>();
-
                 foreach (DataGridViewRow row in dgvDetalles.Rows)
                 {
                     detalles.Add(new DetalleVenta()
@@ -259,23 +257,22 @@ namespace Proyecto_POS.CapaPresentacion
                         SubTotal = Convert.ToDecimal(row.Cells["SubTotal"].Value)
                     });
                 }
-
-                // ---------------------------------------------------
-                // 3) VALIDAR EN BLL
-                // ---------------------------------------------------
+                // --------------------------------------------------- 
+                // 3) VALIDAR EN BLL 
+                // --------------------------------------------------- 
                 var validacion = VentaBLL.ValidarVenta(venta, detalles);
-
                 if (!validacion.Exito)
                 {
                     MessageBox.Show(validacion.Mensaje, "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // ---------------------------------------------------
-                // 4) GUARDAR EN BASE DE DATOS (TRANSACCIÓN)
-                // ---------------------------------------------------
-                var resultado = VentaDAL.RegistrarVentaTransaccional(venta, detalles);
 
+
+                // --------------------------------------------------- 
+                // 4) GUARDAR EN BASE DE DATOS (TRANSACCIÓN) 
+                // --------------------------------------------------- 
+                var resultado = VentaDAL.RegistrarVentaTransaccional(venta, detalles);
                 if (resultado.Exito)
                 {
                     MessageBox.Show(resultado.Mensaje, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -285,21 +282,20 @@ namespace Proyecto_POS.CapaPresentacion
                 {
                     MessageBox.Show(resultado.Mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
+
             catch (Exception ex)
             {
+
                 MessageBox.Show("Error inesperado: " + ex.Message);
             }
         }
-        //metodo calcular el total de la venta
+        //metodo para calcular el total de la venta
         private decimal ObtenerTotalVenta()
         {
             decimal total = 0;
-
             foreach (DataGridViewRow row in dgvDetalles.Rows)
                 total += Convert.ToDecimal(row.Cells["SubTotal"].Value);
-
             return total;
         }
         private void LimpiarFormulario()
@@ -308,6 +304,7 @@ namespace Proyecto_POS.CapaPresentacion
             lblTotal.Text = "Total: $0.00";
             txtBuscarProducto.Clear();
             CargarProductos(string.Empty); // recarga lista completa
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -321,6 +318,12 @@ namespace Proyecto_POS.CapaPresentacion
             FrmCliente2 frm = new FrmCliente2();
             //muestro el formulario
             frm.ShowDialog();
+            cboCliente.DataSource = ClienteDAL.ListarActivos();
+        }
+
+        private void cboCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
