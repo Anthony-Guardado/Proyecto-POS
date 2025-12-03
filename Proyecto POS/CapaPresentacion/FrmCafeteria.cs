@@ -25,10 +25,11 @@ namespace Proyecto_POS
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
+            Close();
             FrmLogin frm = new FrmLogin();
             //muestro el formulario
             frm.Show();
-            Close();
+            
         }
 
         private void BtnVentaRapida_Click(object sender, EventArgs e)
@@ -92,13 +93,27 @@ namespace Proyecto_POS
 
         private void cambiarClaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Close();
             FrmCambiarClave frm = new FrmCambiarClave();
             frm.ShowDialog();
+            
 
         }
 
         private void lblUsuario_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void MenuSuperior_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void BtnGenerarReporte_Click(object sender, EventArgs e)
+        {
+            FrmReporteVentas frm = new FrmReporteVentas();
+            frm.ShowDialog();
 
         }
     }

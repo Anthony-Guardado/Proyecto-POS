@@ -49,6 +49,11 @@ namespace Proyecto_POS.CapaPresentacion
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+            // Abrir principal
+            SesionActual.Cerrar();
+            FrmLogin frm = new FrmLogin();
+            frm.Show();
+            
         }
         // Método privado para generar hash temporal y verificar (evita duplicar Seguridad en UI)
         private string PruebaHash(string pass)
@@ -60,6 +65,8 @@ namespace Proyecto_POS.CapaPresentacion
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
+            FrmMenuPrincipal frm = new FrmMenuPrincipal();
+            frm.Show();
         }
     }
 }

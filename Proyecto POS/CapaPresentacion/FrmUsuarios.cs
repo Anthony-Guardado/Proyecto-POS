@@ -61,23 +61,7 @@ namespace Proyecto_POS.CapaPresentacion
 
         }
 
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int id = int.Parse(txtId.Text);
-                bool estado = chkEstado.Checked;
-                bool ok = UsuarioBLL.Actualizar(id, txtNombreUsuario.Text.Trim(), cmbRol.Text, estado);
-                MessageBox.Show(ok ? "Actualizado" : "No se actualizó");
-                CargarUsuarios();
-                Limpiar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-
-        }
+      
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -109,7 +93,7 @@ namespace Proyecto_POS.CapaPresentacion
                 cmbRol.Text = dgvUsuarios.Rows[e.RowIndex].Cells["Rol"].Value.ToString();
                 chkEstado.Checked = dgvUsuarios.Rows[e.RowIndex].Cells["Estado"].Value.ToString() == "Activo";
             }
-
+            txtClave. Enabled = false;
         }
         private void Limpiar()
         {
@@ -118,7 +102,8 @@ namespace Proyecto_POS.CapaPresentacion
             txtClave.Text = "";
             cmbRol.SelectedIndex = -1;
             chkEstado.Checked = false;
-
+            btnEliminar.Enabled = true;
+            txtClave.Enabled = true;
         }
 
         private void btnRefrescar_Click(object sender, EventArgs e)
@@ -129,6 +114,28 @@ namespace Proyecto_POS.CapaPresentacion
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnActualizar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = int.Parse(txtId.Text);
+                bool estado = chkEstado.Checked;
+                bool ok = UsuarioBLL.Actualizar(id, txtNombreUsuario.Text.Trim(), cmbRol.Text, estado);
+                MessageBox.Show(ok ? "Actualizado" : "No se actualizó");
+                CargarUsuarios();
+                Limpiar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

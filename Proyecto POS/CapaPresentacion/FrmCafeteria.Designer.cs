@@ -49,6 +49,10 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarClaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelIzquierdo = new System.Windows.Forms.Panel();
+            this.PanelCentral = new System.Windows.Forms.Panel();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.LogoPOSS = new System.Windows.Forms.PictureBox();
+            this.BtnGenerarReporte = new FontAwesome.Sharp.IconButton();
             this.btnUsuarios = new FontAwesome.Sharp.IconButton();
             this.BtnVentaRapida = new FontAwesome.Sharp.IconButton();
             this.BtnProductos = new FontAwesome.Sharp.IconButton();
@@ -56,9 +60,6 @@
             this.BtnInventario = new FontAwesome.Sharp.IconButton();
             this.BtnCorteCaja = new FontAwesome.Sharp.IconButton();
             this.BtnSalir = new FontAwesome.Sharp.IconButton();
-            this.PanelCentral = new System.Windows.Forms.Panel();
-            this.LogoPOSS = new System.Windows.Forms.PictureBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
             this.MenuSuperior.SuspendLayout();
             this.PanelIzquierdo.SuspendLayout();
             this.PanelCentral.SuspendLayout();
@@ -79,6 +80,7 @@
             this.MenuSuperior.Size = new System.Drawing.Size(784, 24);
             this.MenuSuperior.TabIndex = 0;
             this.MenuSuperior.Text = "menuStrip1";
+            this.MenuSuperior.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuSuperior_ItemClicked);
             // 
             // gestionToolStripMenuItem
             // 
@@ -220,6 +222,7 @@
             // PanelIzquierdo
             // 
             this.PanelIzquierdo.BackColor = System.Drawing.Color.SandyBrown;
+            this.PanelIzquierdo.Controls.Add(this.BtnGenerarReporte);
             this.PanelIzquierdo.Controls.Add(this.btnUsuarios);
             this.PanelIzquierdo.Controls.Add(this.BtnVentaRapida);
             this.PanelIzquierdo.Controls.Add(this.BtnProductos);
@@ -230,8 +233,58 @@
             this.PanelIzquierdo.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelIzquierdo.Location = new System.Drawing.Point(0, 24);
             this.PanelIzquierdo.Name = "PanelIzquierdo";
-            this.PanelIzquierdo.Size = new System.Drawing.Size(200, 537);
+            this.PanelIzquierdo.Size = new System.Drawing.Size(223, 637);
             this.PanelIzquierdo.TabIndex = 1;
+            // 
+            // PanelCentral
+            // 
+            this.PanelCentral.Controls.Add(this.LogoPOSS);
+            this.PanelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelCentral.Location = new System.Drawing.Point(223, 24);
+            this.PanelCentral.Name = "PanelCentral";
+            this.PanelCentral.Size = new System.Drawing.Size(561, 637);
+            this.PanelCentral.TabIndex = 2;
+            this.PanelCentral.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelCentral_Paint);
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(523, 0);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(65, 25);
+            this.lblUsuario.TabIndex = 3;
+            this.lblUsuario.Text = "label1";
+            this.lblUsuario.Click += new System.EventHandler(this.lblUsuario_Click);
+            // 
+            // LogoPOSS
+            // 
+            this.LogoPOSS.Image = global::Proyecto_POS.Properties.Resources.Logo_de_la_Cafeteria;
+            this.LogoPOSS.Location = new System.Drawing.Point(43, 43);
+            this.LogoPOSS.Name = "LogoPOSS";
+            this.LogoPOSS.Size = new System.Drawing.Size(424, 491);
+            this.LogoPOSS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LogoPOSS.TabIndex = 0;
+            this.LogoPOSS.TabStop = false;
+            // 
+            // BtnGenerarReporte
+            // 
+            this.BtnGenerarReporte.BackColor = System.Drawing.Color.Bisque;
+            this.BtnGenerarReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGenerarReporte.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGenerarReporte.IconChar = FontAwesome.Sharp.IconChar.RectangleList;
+            this.BtnGenerarReporte.IconColor = System.Drawing.Color.Black;
+            this.BtnGenerarReporte.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnGenerarReporte.IconSize = 25;
+            this.BtnGenerarReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGenerarReporte.Location = new System.Drawing.Point(10, 456);
+            this.BtnGenerarReporte.Name = "BtnGenerarReporte";
+            this.BtnGenerarReporte.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.BtnGenerarReporte.Size = new System.Drawing.Size(190, 55);
+            this.BtnGenerarReporte.TabIndex = 13;
+            this.BtnGenerarReporte.Text = "Generar Reporte";
+            this.BtnGenerarReporte.UseVisualStyleBackColor = false;
+            this.BtnGenerarReporte.Click += new System.EventHandler(this.BtnGenerarReporte_Click);
             // 
             // btnUsuarios
             // 
@@ -246,7 +299,7 @@
             this.btnUsuarios.Location = new System.Drawing.Point(10, 382);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnUsuarios.Size = new System.Drawing.Size(180, 55);
+            this.btnUsuarios.Size = new System.Drawing.Size(190, 55);
             this.btnUsuarios.TabIndex = 12;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = false;
@@ -265,7 +318,7 @@
             this.BtnVentaRapida.Location = new System.Drawing.Point(12, 21);
             this.BtnVentaRapida.Name = "BtnVentaRapida";
             this.BtnVentaRapida.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnVentaRapida.Size = new System.Drawing.Size(180, 55);
+            this.BtnVentaRapida.Size = new System.Drawing.Size(188, 55);
             this.BtnVentaRapida.TabIndex = 11;
             this.BtnVentaRapida.Text = "Venta Rápida";
             this.BtnVentaRapida.UseVisualStyleBackColor = false;
@@ -284,7 +337,7 @@
             this.BtnProductos.Location = new System.Drawing.Point(14, 92);
             this.BtnProductos.Name = "BtnProductos";
             this.BtnProductos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnProductos.Size = new System.Drawing.Size(180, 55);
+            this.BtnProductos.Size = new System.Drawing.Size(186, 55);
             this.BtnProductos.TabIndex = 10;
             this.BtnProductos.Text = "Productos";
             this.BtnProductos.UseVisualStyleBackColor = false;
@@ -303,7 +356,7 @@
             this.BtnClientes.Location = new System.Drawing.Point(10, 167);
             this.BtnClientes.Name = "BtnClientes";
             this.BtnClientes.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnClientes.Size = new System.Drawing.Size(180, 55);
+            this.BtnClientes.Size = new System.Drawing.Size(190, 55);
             this.BtnClientes.TabIndex = 9;
             this.BtnClientes.Text = "Clientes";
             this.BtnClientes.UseVisualStyleBackColor = false;
@@ -322,7 +375,7 @@
             this.BtnInventario.Location = new System.Drawing.Point(10, 241);
             this.BtnInventario.Name = "BtnInventario";
             this.BtnInventario.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnInventario.Size = new System.Drawing.Size(180, 55);
+            this.BtnInventario.Size = new System.Drawing.Size(190, 55);
             this.BtnInventario.TabIndex = 8;
             this.BtnInventario.Text = "Inventario";
             this.BtnInventario.UseVisualStyleBackColor = false;
@@ -340,7 +393,7 @@
             this.BtnCorteCaja.Location = new System.Drawing.Point(10, 309);
             this.BtnCorteCaja.Name = "BtnCorteCaja";
             this.BtnCorteCaja.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnCorteCaja.Size = new System.Drawing.Size(180, 55);
+            this.BtnCorteCaja.Size = new System.Drawing.Size(190, 55);
             this.BtnCorteCaja.TabIndex = 7;
             this.BtnCorteCaja.Text = "Corte de Caja";
             this.BtnCorteCaja.UseVisualStyleBackColor = false;
@@ -355,52 +408,21 @@
             this.BtnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnSalir.IconSize = 25;
             this.BtnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSalir.Location = new System.Drawing.Point(10, 453);
+            this.BtnSalir.Location = new System.Drawing.Point(10, 537);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnSalir.Size = new System.Drawing.Size(180, 55);
+            this.BtnSalir.Size = new System.Drawing.Size(190, 55);
             this.BtnSalir.TabIndex = 6;
             this.BtnSalir.Text = "Cerra Sesión";
             this.BtnSalir.UseVisualStyleBackColor = false;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
-            // 
-            // PanelCentral
-            // 
-            this.PanelCentral.Controls.Add(this.LogoPOSS);
-            this.PanelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelCentral.Location = new System.Drawing.Point(200, 24);
-            this.PanelCentral.Name = "PanelCentral";
-            this.PanelCentral.Size = new System.Drawing.Size(584, 537);
-            this.PanelCentral.TabIndex = 2;
-            this.PanelCentral.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelCentral_Paint);
-            // 
-            // LogoPOSS
-            // 
-            this.LogoPOSS.Image = global::Proyecto_POS.Properties.Resources.Logo_de_la_Cafeteria;
-            this.LogoPOSS.Location = new System.Drawing.Point(43, 43);
-            this.LogoPOSS.Name = "LogoPOSS";
-            this.LogoPOSS.Size = new System.Drawing.Size(424, 491);
-            this.LogoPOSS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LogoPOSS.TabIndex = 0;
-            this.LogoPOSS.TabStop = false;
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(523, 0);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(65, 25);
-            this.lblUsuario.TabIndex = 3;
-            this.lblUsuario.Text = "label1";
-            this.lblUsuario.Click += new System.EventHandler(this.lblUsuario_Click);
             // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 661);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.PanelCentral);
             this.Controls.Add(this.PanelIzquierdo);
@@ -454,6 +476,7 @@
         private System.Windows.Forms.Label lblUsuario;
         private FontAwesome.Sharp.IconButton btnUsuarios;
         private System.Windows.Forms.ToolStripMenuItem cambiarClaveToolStripMenuItem;
+        private FontAwesome.Sharp.IconButton BtnGenerarReporte;
     }
 }
 

@@ -107,6 +107,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(43, 29);
             this.txtId.TabIndex = 6;
+            this.txtId.Visible = false;
             // 
             // dgvUsuarios
             // 
@@ -117,6 +118,7 @@
             this.dgvUsuarios.Size = new System.Drawing.Size(557, 115);
             this.dgvUsuarios.TabIndex = 8;
             this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
+            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             // 
             // LBL
             // 
@@ -175,6 +177,7 @@
             this.btnActualizar.TabIndex = 14;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
             // 
             // btnEliminar
             // 

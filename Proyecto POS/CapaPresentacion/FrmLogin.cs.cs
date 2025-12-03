@@ -51,7 +51,7 @@ namespace Proyecto_POS.CapaPresentacion
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
     }
 }
